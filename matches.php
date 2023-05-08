@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/my_styles.css" />
   </head>
   <body>
   <div class="site-wrap">

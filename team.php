@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/my_styles.css" /> 
+    <!-- //stylesheetforteamspages -->
 
 
     <link rel="stylesheet" href="css/aos.css">
@@ -45,8 +47,8 @@
     </div>
 
 
-    <div class="site-section"  >
-      <div class="container" >
+    <!-- <div class="site-section"  > -->
+      <!-- <div class="container" >
         <div class="row">
           <div class="col-md-12 text-center mb-5">
             <h2 class="text-black">Team</h2>
@@ -103,7 +105,40 @@
 
         </div>
 
-    </div>
+    </div> -->
+    
+    <main>
+      <div >
+      <section class="dashboard-section ">
+        <div class="containerBlock">
+          <div class="dashboard-container">
+            <div class="dashboard-item">
+              <h3>Goal Keepers</h3>
+              <p>View the list of available goalkeepers on your team.</p>
+              <button class="secondary-button"><a href="goalkeepers_page.php">View Keepers</a></button>
+            </div>
+            <div class="dashboard-item">
+              <h3>Defenders</h3>
+              <p>View the list of available defenders on your team.</p>
+              <button class="secondary-button"><a href="Defenders_page.php">View Defenders</a></button>
+            </div>
+            <div class="dashboard-item">
+              <h3>Midfielders</h3>
+              <p>View the list of available midfielders on your team.</p>
+              <button class="secondary-button"><a href="Midfielders-page.php">View Midfields</a></button>
+            </div>
+            <div class="dashboard-item">
+              <h3>Attackers</h3>
+              <p>View the list of available Attackers on your team.</p>
+              <button class="secondary-button"><a href="Attackers-page.php">View Attackers</a></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </main>
+
+
     <?php footer(); ?>
   </div>
 
