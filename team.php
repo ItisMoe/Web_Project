@@ -115,22 +115,22 @@
             <div class="dashboard-item">
               <h3>Goal Keepers</h3>
               <p>View the list of available goalkeepers on your team.</p>
-              <button class="secondary-button"><a href="goalkeepers_page.php">View Keepers</a></button>
+              <button class="secondary-button"><a href="Pages/PlayerPages/goalkeepers_page.php">View Keepers</a></button>
             </div>
             <div class="dashboard-item">
               <h3>Defenders</h3>
               <p>View the list of available defenders on your team.</p>
-              <button class="secondary-button"><a href="Defenders_page.php">View Defenders</a></button>
+              <button class="secondary-button"><a href="Pages/PlayerPages/Defenders_page.php">View Defenders</a></button>
             </div>
             <div class="dashboard-item">
               <h3>Midfielders</h3>
               <p>View the list of available midfielders on your team.</p>
-              <button class="secondary-button"><a href="Midfielders-page.php">View Midfields</a></button>
+              <button class="secondary-button"><a href="Pages/PlayerPages/Midfielders-page.php">View Midfields</a></button>
             </div>
             <div class="dashboard-item">
               <h3>Attackers</h3>
               <p>View the list of available Attackers on your team.</p>
-              <button class="secondary-button"><a href="Attackers-page.php">View Attackers</a></button>
+              <button class="secondary-button"><a href="Pages/PlayerPages/Attackers-page.php">View Attackers</a></button>
             </div>
           </div>
         </div>
