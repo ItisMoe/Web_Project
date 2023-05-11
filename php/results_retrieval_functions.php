@@ -1,48 +1,57 @@
 <?php
+// This function establishes a connection to the database and returns the database object
 function connectionToDB(){
-    $dbhost="127.0.0.1";
-      $dbname="football_club";
-      $dbuser="root";
-      $dbpass="";
-      $db=null;
-      try{
-          $db= new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
-      }
-      catch(PDOException $e){
-          print "Error!:".$e->getMessage()."<br/>";
-          die();
-      }
-      return $db;
+  $dbhost="127.0.0.1";
+  $dbname="football_club";
+  $dbuser="root";
+  $dbpass="";
+  $db=null;
+  try{
+      $db= new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
   }
-  function getOpponentsImage($ID,$tableName){
-    $db=connectionToDB();
-    $query = "SELECT `IMAGELINK` FROM `".$tableName."`  WHERE (`ID`='".$ID."')";  
-    $stmt=$db->query($query);
-    while($record=$stmt->fetch()){
-        $answer= $record['IMAGELINK'];
-    }
-     $x="../images/opponents_images/";
-     $finalanswer=$x.$answer;
-     echo  $finalanswer;  
+  catch(PDOException $e){
+      print "Error!:".$e->getMessage()."<br/>";
+      die();
+  }
+  return $db;
 }
+
+// This function retrieves the image link for a given opponent ID and table name
+function getOpponentsImage($ID,$tableName){
+  $db=connectionToDB();
+  $query = "SELECT `IMAGELINK` FROM `".$tableName."`  WHERE (`ID`='".$ID."')";  
+  $stmt=$db->query($query);
+  while($record=$stmt->fetch()){
+      $answer= $record['IMAGELINK'];
+  }
+  $x="../images/opponents_images/";
+  $finalanswer=$x.$answer;
+  echo  $finalanswer;  
+}
+
+// This function retrieves a given property for a given opponent ID and table name
 function getOpponentsProperty($property,$tableName,$ID){
-    $db=connectionToDB();
+  $db=connectionToDB();
   $query = "SELECT `".$property."` FROM `".$tableName."`  WHERE (`ID`='".$ID."')";  
   $stmt=$db->query($query);
   while($record=$stmt->fetch()){
       $answer= $record[$property];
-   }
+  }
   echo $answer;
 }
+
+// This function is the same as the previous one, but it returns the value instead of echoing it
 function getOpponentsPropertyReturned($property,$tableName,$ID){
-    $db=connectionToDB();
+  $db=connectionToDB();
   $query = "SELECT `".$property."` FROM `".$tableName."`  WHERE (`ID`='".$ID."')";  
   $stmt=$db->query($query);
   while($record=$stmt->fetch()){
       $answer= $record[$property];
-   }
+  }
   return $answer;
 }
+
+// This function retrieves the match time for a given match ID and table name
 function getMatchTime($ID, $tableName) {
   $db = connectionToDB();
   $query = "SELECT `TIME` FROM `".$tableName."` WHERE (`ID`='".$ID."')";
@@ -58,21 +67,25 @@ function getMatchTime($ID, $tableName) {
       return null;
   }
 }
-function getMatchDate($ID,$tableName){
-    $db=connectionToDB();
-    $query = "SELECT `DATE` FROM `".$tableName."`  WHERE (`ID`='".$ID."')";  
-    $stmt=$db->query($query);
-    while($record=$stmt->fetch()){
-        $date_string= $record['DATE'];
-    }
-    $date = DateTime::createFromFormat('Y-m-d', $date_string);
-    $day = $date->format('l'); 
-    $month = $date->format('F'); 
-    $year = $date->format('Y'); 
-    $formatted_date = $day . ', ' . $month . ' ' . $year;
-    echo $formatted_date;  
-}
 
+// This function retrieves the match date for a given match ID and table name
+function getMatchDate($ID,$tableName){
+  $db=connectionToDB();
+  $query = "SELECT `DATE` FROM `".$tableName."`  WHERE (`ID`='".$ID."')";  
+  $stmt=$db->query($query);
+  while($record=$stmt->fetch()){
+      $date_string= $record['DATE'];
+  }
+  $date = DateTime::createFromFormat('Y-m-d', $date_string);
+  $day = $date->format('l'); 
+  $month = $date->format('F'); 
+  $year = $date->format('Y'); 
+  $formatted_date = $day . ', ' . $month . ' ' . $year;
+  echo $formatted_date;
+
+}
+//This is a PHP function named displayResultsRow that takes two parameters, $ID and $tableName. The purpose of this function is to display the information of the past matches in a particular format.The matches will be classified under UCL,La liga and La copa
+// The function makes use of several helper functions (getOpponentsPropertyReturned, getOpponentsProperty, getOpponentsImage, and getMatchDate) to retrieve and display information about the match from the database
 function displayResultsRow($ID,$tableName){
         if(getOpponentsPropertyReturned('GAME_CONDITION',$tableName,$ID)=="HOME"){?>
 <main>
@@ -128,6 +141,8 @@ function displayResultsRow($ID,$tableName){
 		</div>
 	</main>
 <?php }  } 
+//This is a PHP function  that takes two parameters, $ID and $tableName. The purpose of this function is to display the information of the upcoming  matches in a particular format.
+// The function makes use of several helper functions (getOpponentsPropertyReturned, getOpponentsProperty, getOpponentsImage, and getMatchDate) to retrieve and display information about the match from the database
 function displayMacthessRow($ID,$tableName){
    if(getOpponentsPropertyReturned('GAME_CONDITION',$tableName,$ID)=="HOME"){?>
   <main>
@@ -211,6 +226,8 @@ function displayMacthessRow($ID,$tableName){
           </div>
       </main>
     <?php }  }
+
+//This function is used to show all the results on the matches page
 function displayResults($Competition){
   $db=connectionToDB();
   $query = "SELECT `ID` FROM `results_table` WHERE `COMPETITION`='".$Competition."'";
@@ -219,6 +236,7 @@ function displayResults($Competition){
   $ID= $record["ID"];
   displayResultsRow($ID,"results_table");}
 }
+//this function is used to show all the coming matches on the matches page
 function displayMatches($Competition){
 $db=connectionToDB();
 $query = "SELECT `ID` FROM `schedule_table` WHERE `COMPETITION`='".$Competition."'";
@@ -227,6 +245,7 @@ while($record=$stmt->fetch()){
 $ID= $record["ID"];
 displayMacthessRow($ID,"schedule_table");}
 } 
+//this function fetches the coming match if from the schedule table and uses it inorder to display the nearest match on the homw page
 function getComingMatchID() {
   $db = connectionToDB();
   $query = "SELECT `ID` FROM `schedule_table` WHERE 1 ORDER BY `DATE` ASC LIMIT 1";
@@ -235,6 +254,7 @@ function getComingMatchID() {
     return $record['ID'];
   } 
 }
+//this function uses the getComingMatchID to display the coming match on the home page
 function displayComingMatch(){
   ?>
       <div class="row mb-5 ">
@@ -248,6 +268,7 @@ function displayComingMatch(){
           </div>
         </div>
 <?php }
+//this function is used to display the remaining time for a given match in a counting down manner
 function timeCountDown(){
   $db = connectionToDB();
   $query = "SELECT `DATE` FROM `schedule_table` WHERE 1 ORDER BY `DATE` ASC LIMIT 1";
@@ -281,6 +302,7 @@ var countdownInterval = setInterval(function() {
 </script>
 <?php 
 }
+//this functions gets the id of the latest played match from the database
 function getLastMatchId(){
     $db = connectionToDB();
     $query = "SELECT `ID` FROM `results_table` WHERE 1 ORDER BY `DATE` DESC LIMIT 1";
@@ -289,7 +311,8 @@ function getLastMatchId(){
       return $record['ID'];
     } 
   }
-function displayLatestMatch(){
+//this function displays the latest match on the home page.It makes use of the getLast Match id
+  function displayLatestMatch(){
   $id=getLastMatchId();
   if(getOpponentsPropertyReturned('GAME_CONDITION','results_table',$id)=="HOME"){?>
   <div class="row">

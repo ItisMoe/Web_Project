@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sportz &mdash; Colorlib Sports Team Template</title>
+    <title>THE INVINCIBLES</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,9 +25,13 @@
   <body>
   <div class="site-wrap">
 <?php Head()?>
-    
+<?php
+  $Title="Welcome to OUR NEWS PAGE";
+  $description="This page is dedicated inorder to keep you involved and up to date with the latest events that are related to our club";
+  $imageLink="../images/messiSmiling.jpg";
+ commonPartTeamMatches($Title,$description,$imageLink)?>
     <div class="site-section">
-      <div class="container">
+      <div class="container" style="margin-top:-60px;">
         <div class="row mb-5">
           <?php displayNews()?>
         </div>
@@ -38,17 +42,11 @@
     <?php footer()?>
   </div>
 
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/jquery-ui.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/jquery.countdown.min.js"></script>
+    
+  </body>
+  
   <script src="../js/jquery.magnific-popup.min.js"></script>
   <script src="../js/aos.js"></script>
   <script src="../js/main.js"></script>
     
-  </body>
 </html>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sportz &mdash; Colorlib Sports Team Template</title>
+  <title>THE INVINCIBLES</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
@@ -46,22 +46,22 @@
             <div class="dashboard-item">
               <h3>Goal Keepers</h3>
               <p>View the list of available goalkeepers on your team.</p>
-              <button class="secondary-button"><a href="PlayerPages/goalkeepers_page.php">View Keepers</a></button>
+              <button class="secondary-button"><a href="PlayerPages/GoalKeeper.php">View Keepers</a></button>
             </div>
             <div class="dashboard-item">
               <h3>Defenders</h3>
               <p>View the list of available defenders on your team.</p>
-              <button class="secondary-button"><a href="PlayerPages/Defenders_page.php">View Defenders</a></button>
+              <button class="secondary-button"><a href="PlayerPages/Defender.php">View Defenders</a></button>
             </div>
             <div class="dashboard-item">
               <h3>Midfielders</h3>
               <p>View the list of available midfielders on your team.</p>
-              <button class="secondary-button"><a href="PlayerPages/Midfielders-page.php">View Midfields</a></button>
+              <button class="secondary-button"><a href="PlayerPages/Midfielder.php">View Midfields</a></button>
             </div>
             <div class="dashboard-item">
               <h3>Attackers</h3>
               <p>View the list of available Attackers on your team.</p>
-              <button class="secondary-button"><a href=" PlayerPages/Attackers-page.php">View Attackers</a></button>
+              <button class="secondary-button"><a href=" PlayerPages/Forward.php">View Attackers</a></button>
             </div>
           </div>
         </div>
@@ -73,14 +73,6 @@
     <?php footer(); ?>
   </div>
 
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/jquery-ui.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/jquery.countdown.min.js"></script>
   <script src="../js/jquery.magnific-popup.min.js"></script>
   <script src="../js/aos.js"></script>
   <script src="../js/main.js"></script>
