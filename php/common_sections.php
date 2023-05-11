@@ -1,20 +1,31 @@
 <?php
+function Head(){
+  ?>
 
-function commonHeader(){
-    ?>
-    <header>
-  <nav class="header-nav">
-    <ul class="header-nav-list">
-      <li class="header-nav-item"><a href="home.php" class="header-nav-link">HOME</a></li>
-      <li class="header-nav-item"><a href="#" class="header-nav-link">SHOP</a></li>
-      <li class="header-nav-item"><a href="team.php" class="header-nav-link">TEAM</a></li>
-      <li class="header-nav-item"><a href="matches.php" class="header-nav-link">MATCHES</a></li>
-      <li class="header-nav-item"><a href="#" class="header-nav-link">PROFILE</a></li>
+<header style="padding:0px;position:fixed;top:0px">
+<nav class="site-navigation position-relative text-right bg-black text-md-right" role="navigation">
+  <div class="container position-relative" style="margin:0px">
+    <ul class="menu-list js-clone-nav">
+    <li><a href="home.php">Home</a></li> 
+    <li class="has-children">
+        <a href="#">Shop</a>
+        <ul class="sub-menu arrow-top" style="text-align: left;float:left">
+          <li><a href="#">Merchandise</a></li>
+          <li><a href="#">Tickets</a></li>
+</ul>
+      </li>
+      <li><a href="team.php">Team</a></li>
+      <li><a href="news.php">News</a></li>
+      <li><a href="matches.php">Matches</a></li>
+
+      <li><a href="#">Profile</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 </header>
 
-
+ 
+  
 <?php }
 
 function commonPartTeamMatches($Title,$description,$imageLink){?>
@@ -29,33 +40,27 @@ function commonPartTeamMatches($Title,$description,$imageLink){?>
       </div>
     </div>
   </div>
-  
 <?php }
 
 function footer(){?>
+<style>
+  body{
+margin-bottom: 0px;
+  }
+  footer {
+  background-color: #1d1d1d;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  min-height:60px;
+  position:relative;
+  bottom:-30px;
+}</style>
     <footer class="site-footer border-top">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-4">About Sportz</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
-            </div>            
-          </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="row mb-5">
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Membership</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
+      Join the Club, Support the Team, Live the Dream - Together!
           <div class="col-md-12">
             <p>
             Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved </a>
@@ -64,6 +69,6 @@ function footer(){?>
         </div>
       </div>
     </footer>
-<?php } ?>
+<?php }
 
 
