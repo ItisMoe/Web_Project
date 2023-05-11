@@ -48,6 +48,7 @@ function displayNews(){
         displayNewsBlock($id);
      }
 }
+
 function displayNewsBlock($id){?>
     <div class="col-md-6 col-lg-4">
     <div class="post-entry">
@@ -55,7 +56,7 @@ function displayNewsBlock($id){?>
         <img src=<?php getImageLink($id)?> alt="Image" class="img-fluid">
       </div>
       <div class="text p-4">
-        <h2 class="h5 text-black"><a href="#"><?php getNewsfield('TITLE',$id)?></a></h2>
+        <h2 class="h5 text-black"><a href="displayNews.php?token=<?php echo $id?>"><?php getNewsfield('TITLE',$id)?></a></h2>
         <span class="text-uppercase date d-block mb-3"><small><?php getNewsfield('AUTHOR',$id)?> &bullet; <?php  getNewsDateOfPublication($id) ?></small></span>
         <p class="mb-0"><?php getNewsfield('PART_ONE',$id)?></p>
       </div>
@@ -73,6 +74,6 @@ function getImageLink($ID){
     }
      $x="images/news_images/";
      $finalanswer=$x.$answer;
-     echo  "images/messiSmiling.jpg";  
+     echo  "../images/messiSmiling.jpg";  
 }
 ?>

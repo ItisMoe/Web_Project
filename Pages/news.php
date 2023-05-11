@@ -1,5 +1,6 @@
 <?php require_once("../php/common_sections.php");?>
 <?php require_once("../php/results_retrieval_functions.php");?>
+<?php require_once("../php/news_retrieval_functions.php");?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,38 +20,24 @@
     <link rel="stylesheet" href="../css/my_styles.css" />
     <link rel="stylesheet" href="../css/matchesStyle.css" />
     <link rel="stylesheet" href="../css/header.css" />
-
+    
   </head>
   <body>
   <div class="site-wrap">
-  <?php Head()?>
-  <?php
-  $Title="Here you can view Our Recent News";
-  $description="This page is dedicated to help you stay updated with the latest events happening in our club.We appreciate your time for reading.";
-  $imageLink="../images/messiBasht.jpg";
- commonPartTeamMatches($Title,$description,$imageLink)?>
-    </div>   
-    <div class="site-section site-blocks-vs">
+<?php Head()?>
+    
+    <div class="site-section">
       <div class="container">
-      <div class="row mb-5">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="post-entry">
-              <div class="image">
-                <img src="../images/img_1.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="text p-4">
-                <h2 class="h5 text-black"><a href="#">RealMad vs Striker Who Will Win?</a></h2>
-                <span class="text-uppercase date d-block mb-3"><small>By Colorlib &bullet; Sep 25, 2018</small></span>
-                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat beatae doloremque, ex corrupti perspiciatis.</p>
-              </div>
-            </div>
-          </div>
-</div>
-      
+        <div class="row mb-5">
+          <?php displayNews()?>
+        </div>
+
       </div>
     </div>
-    <?php footer(); ?>
+
+    <?php footer()?>
   </div>
+
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../js/jquery-ui.js"></script>
@@ -61,8 +48,7 @@
   <script src="../js/jquery.countdown.min.js"></script>
   <script src="../js/jquery.magnific-popup.min.js"></script>
   <script src="../js/aos.js"></script>
-
   <script src="../js/main.js"></script>
     
-  </body>
+  </body>
 </html>
