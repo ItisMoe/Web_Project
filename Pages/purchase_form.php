@@ -23,8 +23,7 @@ if(!isset($_SESSION["USERNAME"])){
     <div class="container">
         <h2>Payment Form for Merchandise</h2>
         <!--note for getting points and how they can use them-->
-        <small>If you need points, you can win by expecting games' result. Click <a href='#!' style='color:red;'>here</a> to expect.</small>
-        <b><span style='color:black;'> Each 200 POINTS is EQUIVELANT to $50.</span></b>
+        <b><pre style='color:black;'>              Each 200 POINTS is EQUIVELANT to $50.</pre></b>
         <form id="paymentForm" action="../php/updateDB.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>

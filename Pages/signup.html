@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign up</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="icon" type="../image/x-icon" href="../images/favicon-32x32.png">
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="../images/rsmile.avif" style="object-fit: cover;" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <img src="../images/logo1.png" alt="logo" class="logo">
+              </div>
+              <p class="login-card-description">Register an account</p>
+              <form  id="login-form"  method="post" action="../php/signup.php">
+                <div class="colums">
+                <div class="form-group">
+                    <label  for="fname" class="sr-only" style="float: left;">First Name</label>
+                    <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name*">
+                  </div>
+                  <div class="form-group">
+                    <label for="fname" class="sr-only">Last Name</label>
+                    <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name*">
+                  </div>
+                </div>
+                  <div class="form-group">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address*">
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter a Password*">
+                  </div>
+                  <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Sign Up">
+                  <div class="custom-control custom-checkbox login-card-check-box">
+                    <input name="remeber_me" type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Remember me</label>
+                    <br><br>
+                  </div>  
+                </form>
+                <p class="login-card-footer-text">Already Have An Account? <a href="../index.php" class="text-reset">Login here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../js/alert_script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script>
+      $(document).ready(function () {
+        $('#login').click(function (e) {
+          e.preventDefault();
+          var formData = $('#login-form').serialize();
+          $.ajax({
+            type: 'POST',
+            url: '../php/signup.php',
+            data: formData,
+            success: function (response) {
+              if (response == "done") {
+                myAlert('Sign up was successful, please continue', 'more_info.php', 'Continue');
+              }
+              else if (response == "reg-email") {
+                myAlert('Your email is already registered with us', '../index.php', 'Login');
+
+              }
+              else if(response=="wrong"){
+                myAlert('Something went wrong. Please try again','signup.html','Try again');
+              }
+              else{
+                myAlert('Please fill all fields','signup.html','OK');
+              }
+            }
+          });
+        });
+      });
+  </script>
+  </script>
+</body>
+</html>

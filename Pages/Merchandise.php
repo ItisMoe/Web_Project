@@ -48,7 +48,7 @@ if (isset($_GET['wrong']) && $_GET['wrong'] == 'true') {
             <div class="container px-4 px-lg-5" >
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="About_Merchandise.php">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="Tickets.php">Tickets</a></li>
 
@@ -65,7 +65,7 @@ if (isset($_GET['wrong']) && $_GET['wrong'] == 'true') {
                 <div class="btn btn-outline-dark cart-points" style="color:#333;">
                             <i class="bi bi-piggy-bank-fill"></i>
                             <span id="txt">Points</span>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill"><?php echo displayPoints($_SESSION["USERNAME"]);?></span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill"><?php echo displayPoints($_SESSION["id"]);?></span>
                 </div>
                 <!--welcoming the user and button for logging out-->
                 <div class="right">
@@ -420,7 +420,7 @@ if (isset($_GET['wrong']) && $_GET['wrong'] == 'true') {
             });
             // function to logout
             function Logout(){
-                window.location.href = "http://localhost/Web-Project/index.php";
+                window.location.href = "../php/signout.php";
             }
             
         </script>
